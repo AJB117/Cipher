@@ -6,3 +6,4 @@ def caesar_1(caesar_out):
         else:
             temp += chr(ord(c) + 1)
     return temp
+#Prototype; needs vigenere functionality and ability to pull from a user-inputted key
