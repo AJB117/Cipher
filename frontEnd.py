@@ -6,22 +6,59 @@ window = Tk.Tk()
 window.title("Cipher Encrypt/Decrypt")
 window.geometry("900x600")
 
-# Where users put their text to encrypt (Caesar)
+# CAESAR ENCRYPTION
+
+# Where users put their text to encrypt
 Caesar_encrypt = Tk.Text(window, height=20, width=40)
 Caesar_encrypt.pack()
 
+# Variable for drop down menu for key
+var = Tk.IntVar(window)
+var.set('')
 
-# Passing plaintext to caesar function in backend
+# Drop down menu for encryption key
+Caesar_key = Tk.OptionMenu(window, var, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+                           14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26)
+Caesar_key.pack(side='left')
+
+# Passing plaintext to caesar function in backend; create new window to show selectable
+# encrypted string
 def backend_caesar():
     x = Caesar_encrypt.get("1.0", 'end-1c')
-    print backEnd.caesar_1(x)
-
+    win = Tk.Toplevel(window)
+    output_box = Tk.Text(win, height=300, width=300)
+    output_box.pack()
+    shift = var.get()
+    output_box.insert(Tk.END, backEnd.caesar_e(x, shift))
+    output_box.configure(state=Tk.DISABLED)
+    
 # Submit plaintext to function to backend
-submit = Tk.Button(window, text="Submit", command=backend_caesar)
-submit.pack()
+Caesar_submit = Tk.Button(window, text="Caesar Submit", command=get_caesar)
+Caesar_submit.pack(side='left')
+
+# CAESAR DECRYPTION
 
 # Where users put their text to decrypt (Caesar)
 Caesar_decrypt = Tk.Text(window, height=20, width=40)
 Caesar_decrypt.pack()
 
+# Drop down menu for decryption key
+Caesar_dkey = Tk.OptionMenu(window, var, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+                            14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26)
+Caesar_dkey.pack(side='left')
+
+# Passing encrypted text to caesar decryption function in backend; create new window
+# to show selectable encrypted string
+def dget_caesar():
+    y = Caesar_decrypt.get("1.0", 'end-1c')
+    win = Tk.Toplevel(window)
+    output_box = Tk.Text(win, height=300, width=300)
+    output_box.pack()
+    shift = var.get()
+    output_box.insert(Tk.END, backEnd.caesar_d(y, shift))
+
+# Submit encrypted text to function to backend
+Caesar_dsubmit = Tk.Button(window, text="Caesar Decrypt Submit")
+Caesar_dsubmit.pack(side='left')
+   
 window.mainloop()
