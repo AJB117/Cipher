@@ -24,12 +24,11 @@ Caesar_key.pack(side='left')
 # Passing plaintext to caesar function in backend; create new window to show selectable
 # encrypted string
 def backend_caesar():
-    x = Caesar_encrypt.get("1.0", 'end-1c')
     win = Tk.Toplevel(window)
     output_box = Tk.Text(win, height=300, width=300)
     output_box.pack()
     shift = var.get()
-    output_box.insert(Tk.END, backEnd.caesar_e(x, shift))
+    output_box.insert(Tk.END, backEnd.caesar_e(Caesar_encrypt.get("1.0", 'end-1c'), shift))
     output_box.configure(state=Tk.DISABLED)
     
 # Submit plaintext to function to backend
@@ -54,12 +53,11 @@ Caesar_dkey.pack(side='left')
 # Passing encrypted text to caesar decryption function in backend; create new window
 # to show selectable encrypted string
 def dget_caesar():
-    y = Caesar_decrypt.get("1.0", 'end-1c')
     win = Tk.Toplevel(window)
     output_box = Tk.Text(win, height=300, width=300)
     output_box.pack()
     shift = decrypt_var.get()
-    output_box.insert(Tk.END, backEnd.caesar_d(y, shift))
+    output_box.insert(Tk.END, backEnd.caesar_d(Caesar_decrypt.get("1.0", 'end-1c'), shift))
 
 # Submit encrypted text to function to backend
 Caesar_dsubmit = Tk.Button(window, text="Caesar Decrypt Submit")
