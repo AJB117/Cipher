@@ -3,7 +3,7 @@
 def caesar_e(caesar_out, shift):
     temp = ""
     for c in caesar_out:
-       if c.isalpha == False:
+       if c.isalpha() == False:
            temp += chr(ord(c))
        else:
             if c.islower():
@@ -17,7 +17,7 @@ def caesar_e(caesar_out, shift):
 def caesar_d(caesar_out, shift):
     temp = ""
     for c in caesar_out:
-        if c.isalpha == False:
+        if c.isalpha() == False:
             temp += chr(ord(c))
         else:
             if c.islower():
