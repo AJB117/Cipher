@@ -14,10 +14,10 @@ Caesar_encrypt.pack()
 
 # Variable for drop down menu for key
 var = Tk.IntVar(window)
-var.set('')
+var.set(1)
 
 # Drop down menu for encryption key
-Caesar_key = Tk.OptionMenu(window, var, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+Caesar_key = Tk.OptionMenu(window, var, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
                            14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26)
 Caesar_key.pack(side='left')
 
@@ -43,10 +43,10 @@ Caesar_decrypt.pack()
 
 # Variable for drop down menu for decryption key
 decrypt_var = Tk.IntVar(window)
-decrypt_var.set('')
+decrypt_var.set(1)
 
 # Drop down menu for decryption key
-Caesar_dkey = Tk.OptionMenu(window, decrypt_var, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+Caesar_dkey = Tk.OptionMenu(window, decrypt_var, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
                             14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26)
 Caesar_dkey.pack(side='left')
 
@@ -60,7 +60,7 @@ def dget_caesar():
     output_box.insert(Tk.END, backEnd.caesar_d(Caesar_decrypt.get("1.0", 'end-1c'), shift))
 
 # Submit encrypted text to function to backend
-Caesar_dsubmit = Tk.Button(window, text="Caesar Decrypt Submit")
+Caesar_dsubmit = Tk.Button(window, text="Caesar Decrypt Submit", command=dget_caesar)
 Caesar_dsubmit.pack(side='left')
  
 # TODO
