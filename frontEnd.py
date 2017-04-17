@@ -23,7 +23,7 @@ Caesar_key.pack(side='left')
 
 # Passing plaintext to caesar function in backend; create new window to show selectable
 # encrypted string
-def backend_caesar():
+def get_caesar():
     win = Tk.Toplevel(window)
     output_box = Tk.Text(win, height=300, width=300)
     output_box.pack()
