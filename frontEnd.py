@@ -60,5 +60,9 @@ def dget_caesar():
 # Submit encrypted text to function to backend
 Caesar_dsubmit = Tk.Button(window, text="Caesar Decrypt Submit")
 Caesar_dsubmit.pack(side='left')
-   
+ 
+# TODO
+# Vigenere UI in the same style as Caesar boxes
+# Beautification
+
 window.mainloop()
