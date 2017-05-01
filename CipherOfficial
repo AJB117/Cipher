@@ -170,4 +170,4 @@ dsubmit_keyfield.grid(padx=10, row=2, column=4)
 vigenere_dsubmit = Tk.Button(window, text="Vigenere Decrypt Submit", command=dget_vigenere)
 vigenere_dsubmit.grid(row=2, column=5)
 
-window.mainloop()/
+window.mainloop()
