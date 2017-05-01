@@ -1,6 +1,8 @@
 import Tkinter as Tk
+import backEnd
 
 # Encryption/Decryption Functions
+
 
 def caesar(caesar_out, shift, e_or_d):
     temp = ""
@@ -29,13 +31,13 @@ def caesar(caesar_out, shift, e_or_d):
 def vigenere(vigenere_out, key, e_or_d):
     i = 0
     k = 0
+    for c in key:
+        if not c.isalpha():
+            return "Use only single characters and words for the Vigenere key."
+    while len(vigenere_out) > len(key):
+        key += key
     if e_or_d == "encrypt":
-        for c in key:
-            if not c.isalpha():
-                return "Use only single characters and words for the Vigenere key."
         temp = ""
-        while len(vigenere_out) > len(key):
-            key += key
         while i < len(vigenere_out):
             if not vigenere_out[i].isalpha():
                 temp += vigenere_out[i]
@@ -55,12 +57,7 @@ def vigenere(vigenere_out, key, e_or_d):
                     k += 1
         return temp
     else:
-        for c in key:
-            if not c.isalpha():
-                return "Use only single characters and words for the Vigenere key."
         temp = ""
-        while len(vigenere_out) > len(key):
-            key += key
         while i < len(vigenere_out):
             if not vigenere_out[i].isalpha():
                 temp += vigenere_out[i]
@@ -81,6 +78,7 @@ def vigenere(vigenere_out, key, e_or_d):
         return temp
 
 # Button functions
+
 
 def get_caesar():
     win = Tk.Toplevel(window)
