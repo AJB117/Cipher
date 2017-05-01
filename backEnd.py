@@ -1,4 +1,4 @@
-# CAESAR
+# Caesar functionality
 def caesar(caesar_out, shift, e_or_d):
     temp = ""
     if e_or_d == "encrypt":
@@ -22,30 +22,57 @@ def caesar(caesar_out, shift, e_or_d):
                     temp += chr((((ord(c) - 65) - shift) % 26) + 65)
         return temp
 
-
-# TODO
-# PS limit the key to 5 letters
-# finish the message encryption i have no clue how to make array loops
 # Vigenere functionality
 def vigenere(vigenere_out, key, e_or_d):
-    key = [1,2,3,4,5]
-    if key == "encrypt":
-        for [i] in key:
-            if not key[i].isalpha():
-                temp += chr(ord(key[i])):
+    i = 0
+    k = 0
+    if e_or_d == "encrypt":
+        for c in key:
+            if not c.isalpha():
+                return "Use only single characters and words for the Vigenere key."
+        temp = ""
+        while len(vigenere_out) > len(key):
+            key += key
+        while i < len(vigenere_out):
+            if not vigenere_out[i].isalpha():
+                temp += vigenere_out[i]
+                i += 1
             else:
-                if key[i].islower():
-                    temp += chr((((ord(key[i]) - 97) + shift) % 26) + 97)
-            else:
-                temp += chr((((ord(key[i]) -65) + shift) % 26) + 65)
+                if vigenere_out[i].islower():
+                    shift = ord(key[k].lower()) - 97
+                    output = chr(((ord(vigenere_out[i]) - 97 + shift) % 26) + 97)
+                    temp += output
+                    i += 1
+                    k += 1
+                elif vigenere_out[i].isupper():
+                    shift = ord(key[k].upper()) - 65
+                    output = chr(((ord(vigenere_out[i]) - 65 + shift) % 26) + 65)
+                    temp += output
+                    i += 1
+                    k += 1
         return temp
-    elif e_or_d == "decrypt":
-        for [i] in key:
-            if not key[i].isalpha():
-                temp += chr(ord(key[i])):
+    else:
+        for c in key:
+            if not c.isalpha():
+                return "Use only single characters and words for the Vigenere key."
+        temp = ""
+        while len(vigenere_out) > len(key):
+            key += key
+        while i < len(vigenere_out):
+            if not vigenere_out[i].isalpha():
+                temp += vigenere_out[i]
+                i += 1
             else:
-                if key[i].islower():
-                    temp += chr((((ord(key[i]) - 97) + shift) % 26) + 97)
-            else:
-                temp += chr((((ord(key[i]) -65) + shift) % 26) + 65)
+                if vigenere_out[i].islower():
+                    shift = ord(key[k].lower()) - 97
+                    output = chr(((ord(vigenere_out[i]) - 97 - shift) % 26) + 97)
+                    temp += output
+                    i += 1
+                    k += 1
+                elif vigenere_out[i].isupper():
+                    shift = ord(key[k].upper()) - 65
+                    output = chr(((ord(vigenere_out[i]) - 65 - shift) % 26) + 65)
+                    temp += output
+                    i += 1
+                    k += 1
         return temp
