@@ -1,5 +1,4 @@
 import Tkinter as Tk
-import backEnd
 
 # Functions
 
@@ -9,7 +8,7 @@ def get_caesar():
     output_box = Tk.Text(win, height=300, width=300)
     output_box.pack()
     shift = var.get()
-    output_box.insert(Tk.END, backEnd.caesar(Caesar_encrypt.get("1.0", 'end-1c'), shift), "encrypt")
+    output_box.insert(Tk.END, caesar(Caesar_encrypt.get("1.0", 'end-1c'), shift), "encrypt")
     output_box.configure(state=Tk.DISABLED)
 
 # Passing encrypted text to caesar function for decryption
@@ -18,7 +17,7 @@ def dget_caesar():
     output_box = Tk.Text(win, height=300, width=300)
     output_box.pack()
     shift = decrypt_var.get()
-    output_box.insert(Tk.END, backEnd.caesar(Caesar_decrypt.get("1.0", 'end-1c'), shift), "decrypt")
+    output_box.insert(Tk.END, caesar(Caesar_decrypt.get("1.0", 'end-1c'), shift), "decrypt")
     output_box.configure(state=Tk.DISABLED)
 
 # Passing plaintext to vigenere function for encryption given a key
