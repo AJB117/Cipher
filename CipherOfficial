@@ -2,7 +2,6 @@ import Tkinter as Tk
 
 # Encryption/Decryption Functions
 
-
 def caesar(caesar_out, shift, e_or_d):
     temp = ""
     if e_or_d == "encrypt":
