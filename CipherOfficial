@@ -82,7 +82,6 @@ def vigenere(vigenere_out, key, e_or_d):
 
 # Button functions
 
-
 def get_caesar():
     win = Tk.Toplevel(window)
     output_box = Tk.Text(win, height=300, width=300)
