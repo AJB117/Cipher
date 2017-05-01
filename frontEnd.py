@@ -3,8 +3,7 @@ import backEnd
 
 # Functions
 
-# Passing plaintext to caesar function in backend; create new window to show selectable
-# encrypted string
+# Passing plaintext to caesar function for encryption
 def get_caesar():
     win = Tk.Toplevel(window)
     output_box = Tk.Text(win, height=300, width=300)
@@ -13,8 +12,7 @@ def get_caesar():
     output_box.insert(Tk.END, backEnd.caesar(Caesar_encrypt.get("1.0", 'end-1c'), shift), "encrypt")
     output_box.configure(state=Tk.DISABLED)
 
-# Passing encrypted text to caesar decryption function in backend; create new window
-# to show selectable encrypted string
+# Passing encrypted text to caesar function for decryption
 def dget_caesar():
     win = Tk.Toplevel(window)
     output_box = Tk.Text(win, height=300, width=300)
@@ -23,7 +21,22 @@ def dget_caesar():
     output_box.insert(Tk.END, backEnd.caesar(Caesar_decrypt.get("1.0", 'end-1c'), shift), "decrypt")
     output_box.configure(state=Tk.DISABLED)
 
-# Needs functions to pass plaintext/encrypted text to backend for vigenere
+# Passing plaintext to vigenere function for encryption given a key
+def get_vigenere():
+    win = Tk.Toplevel(window)
+    output_box = Tk.Text(win, height=300, width=300)
+    output_box.grid(row=0, column=0)
+    output_box.insert(Tk.END, vigenere(vigenere_encrypt.get("1.0", 'end-1c'), keyfield.get("1.0", 'end-1c'), "encrypt"))
+    output_box.configure(state=Tk.DISABLED)
+
+# Passing encrypted text to vigenere function for decryption given a key
+def dget_vigenere():
+    win = Tk.Toplevel(window)
+    output_box = Tk.Text(win, height=300, width=300)
+    output_box.grid(row=0, column=0)
+    output_box.insert(Tk.END, vigenere(vigenere_decrypt.get("1.0", 'end-1c'), dsubmit_keyfield.get("1.0", 'end-1c'), "decrypt"))
+    output_box.configure(state=Tk.DISABLED)
+
 
 # Main window
 window = Tk.Tk()
@@ -80,14 +93,14 @@ vigenere_decrypt = Tk.Text(window, height=20, width=40)
 vigenere_decrypt.grid(row=2, column=3)
 
 # Button needs a command
-vigenere_submit = Tk.Button(window, text="Vigenere Submit")
+vigenere_submit = Tk.Button(window, text="Vigenere Submit", command=get_vigenere)
 vigenere_submit.grid(row=2, column=2)
 
 dsubmit_keyfield = Tk.Text(window, height=5, width=10)
 dsubmit_keyfield.grid(padx=10, row=2, column=4)
 
 # Button needs a command
-vigenere_dsubmit = Tk.Button(window, text="Vigenere Decrypt Submit")
+vigenere_dsubmit = Tk.Button(window, text="Vigenere Decrypt Submit", command=dget_vigenere)
 vigenere_dsubmit.grid(row=2, column=5)
 
 
