@@ -76,3 +76,18 @@ def vigenere(vigenere_out, key, e_or_d):
                     i += 1
                     k += 1
         return temp
+
+if "__name__" != "__main__":
+    out = "test word yay"
+    shift = 3
+    key = "testkey"
+    e_or_d = "encrypt"
+    encryptCaesar = caesar(out, shift, e_or_d)
+    encryptVigenere = vigenere(out, key, e_or_d)
+    print(encryptCaesar)
+    print(encryptVigenere)
+    e_or_d = "decyrpt"
+    decryptedCaesar = caesar(encryptCaesar,shift , e_or_d)
+    decryptedVigenere = vigenere(encryptVigenere, key, e_or_d)
+    print(decryptedCaesar)
+    print(decryptedVigenere)
